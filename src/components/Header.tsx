@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,10 +18,25 @@ export default function Header() {
   }, [])
 
   return (
-    <header>
-      <nav>
-        <div>
-          <Link href="/">
+    <header className="relative min-h-screen">
+      <div className="absolute inset-0">
+        <Image
+          src="/img/ct-meetup.jpg"
+          alt="CT Meetup Background"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
+
+      <nav
+        className={`fixed w-full z-50 transition-all duration-300 ${
+          scrolled ? 'bg-black/80 backdrop-blur-sm' : ''
+        }`}
+      >
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <Link href="/" className="relative z-10">
             <Image
               src="/img/developers-club-logo-white.svg"
               alt="Developers Club"
@@ -29,43 +45,108 @@ export default function Header() {
             />
           </Link>
 
-          <div>
+          <div className="hidden md:flex items-center gap-8">
             {['Misija', 'Vrednosti', 'Tim', 'Projekti', 'Partneri'].map((item, index) => (
-              <Link 
+              <Link
                 key={index}
                 href={`#${item.toLowerCase()}`}
+                className="relative text-white transition-all duration-300 group"
               >
                 {item}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-devclub transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
-            <Link 
-              href="https://forms.gle/kFiA1KkoXjrKGMDV6" 
+            <Link
+              href="https://forms.gle/kFiA1KkoXjrKGMDV6"
               target="_blank"
+              className="bg-devclub hover:bg-devclub-dark text-white px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-devclub/20"
             >
               Pridruži se
             </Link>
           </div>
-          
-          <button>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+
+          <button 
+            className="md:hidden text-white z-50" 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            {mobileMenuOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
           </button>
+        </div>
+        
+        {/* Mobile Menu */}
+        <div 
+          className={`fixed inset-x-0 top-0 pt-24 pb-6 bg-gradient-to-b from-black/95 to-black/90 backdrop-blur-md z-40 transition-all duration-300 ease-in-out ${
+            mobileMenuOpen 
+              ? 'translate-y-0 opacity-100 shadow-xl' 
+              : '-translate-y-full opacity-0'
+          }`}
+        >
+          <div className="container mx-auto px-6">
+            <div className="flex flex-col space-y-6">
+              {['Misija', 'Vrednosti', 'Tim', 'Projekti', 'Partneri'].map((item, index) => (
+                <Link
+                  key={index}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-white text-2xl font-medium border-b border-gray-800 pb-3 transition-all duration-300"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item}
+                </Link>
+              ))}
+              <Link
+                href="https://forms.gle/kFiA1KkoXjrKGMDV6"
+                target="_blank"
+                className="bg-devclub hover:bg-devclub-dark text-white px-6 py-3 rounded-full text-xl font-medium transition-all duration-300 hover:scale-105 mt-4 text-center"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Pridruži se
+              </Link>
+            </div>
+          </div>
         </div>
       </nav>
 
-      <div>
-        <div>
-          <div>
-            <h1>
+      <div className="relative container mx-auto px-4 min-h-screen flex items-center">
+        <div className="max-w-2xl">
+          <div className="text-white">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Delimo znanje.
               <br />
-              <span>
-                Gradimo budućnost.
-              </span>
+              <span className="text-devclub">Gradimo budućnost.</span>
             </h1>
 
-            <p>
+            <p className="text-lg md:text-xl mb-8 text-gray-200">
               Klub Programera je mesto okupljanja IT profesionalaca, gde se razmenjuju ideje,
               iskustva i znanje. Kroz edukativne događaje, zajedničke projekte i razvojne
               inicijative, gradimo snažnu zajednicu stručnjaka koji zajedno oblikuju budućnost
@@ -76,9 +157,11 @@ export default function Header() {
               <Link
                 href="https://forms.gle/kFiA1KkoXjrKGMDV6"
                 target="_blank"
+                className="inline-flex items-center gap-2 bg-devclub hover:bg-devclub-dark text-white px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-devclub/20 group"
               >
                 Pridruži se i postani deo priče
                 <svg
+                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -97,8 +180,9 @@ export default function Header() {
         </div>
       </div>
 
-      <div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce">
         <svg
+          className="w-8 h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
