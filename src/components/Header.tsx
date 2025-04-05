@@ -20,17 +20,17 @@ export default function Header() {
   return (
     <header className="relative min-h-screen">
       {/* Background container */}
-      <div className="absolute inset-0 h-screen">
+      <div className="absolute inset-0 h-[800px] md:h-[900px]">
         <Image
           src="/img/ct-meetup.jpg"
           alt="CT Meetup Background"
-          fill
-          className="object-cover"
           priority
+          quality={100}
+          fill
           sizes="100vw"
           style={{
             objectFit: 'cover',
-            willChange: 'transform'
+            objectPosition: 'center 30%'
           }}
         />
         <div className="absolute inset-0 bg-black/60" />
