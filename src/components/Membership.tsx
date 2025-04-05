@@ -54,13 +54,9 @@ export default function Membership() {
             </p>
 
             <ul className="space-y-2">
-              {benefits.map((benefit, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+              {benefits.map((benefit, i) => (
+                <div
+                  key={i}
                   className="flex items-start space-x-3 md:space-x-4 group p-2 md:p-3 rounded-lg hover:bg-white/5 transition-all duration-300"
                 >
                   <div className="flex-shrink-0 p-1.5 md:p-2 rounded-lg bg-devclub/10 group-hover:bg-devclub/20 transition-colors duration-300">
@@ -69,7 +65,7 @@ export default function Membership() {
                   <span className="text-base md:text-lg text-blue-50/90 group-hover:text-blue-50 pt-0.5 md:pt-1 transition-colors duration-300">
                     {benefit.text}
                   </span>
-                </motion.li>
+                </div>
               ))}
             </ul>
           </motion.div>

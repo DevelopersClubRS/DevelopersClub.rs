@@ -55,28 +55,23 @@ export default function Partners() {
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto">
-          {partners.map((partner, index) => (
-            <motion.a
-              key={index}
-              href={partner.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-              viewport={{ once: true, amount: 0.5 }}
+          {partners.map((partner, i) => (
+            <div
+              key={i}
               className="group flex items-center justify-center p-6 rounded-xl bg-white/5 hover:bg-white/10 border-2 border-white/10 hover:border-devclub/30 transition-all duration-300 hover:shadow-[0_0_30px_-5px_rgba(97,165,194,0.3)]"
             >
-              <div className={`relative w-full h-12 ${partner.darkBg ? 'bg-gray-900 rounded-lg' : ''}`}>
-                <Image 
-                  src={partner.img} 
-                  alt={partner.name} 
-                  fill 
+              <div
+                className={`relative w-full h-12 ${partner.darkBg ? 'bg-gray-900 rounded-lg' : ''}`}
+              >
+                <Image
+                  src={partner.img}
+                  alt={partner.name}
+                  fill
                   loading="eager"
-                  className="object-contain p-2" 
+                  className="object-contain p-2"
                 />
               </div>
-            </motion.a>
+            </div>
           ))}
         </div>
       </div>

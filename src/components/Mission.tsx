@@ -26,8 +26,8 @@ export default function Mission() {
   ]
 
   return (
-    <section 
-      id="misija" 
+    <section
+      id="misija"
       className="relative w-full py-16 overflow-hidden border-y border-white/5 bg-gradient-to-b from-slate-950/95 to-slate-900/95"
       style={{ scrollMarginTop: 'calc(var(--dvh,1vh)*100)' }} // Add scroll margin
     >
@@ -65,17 +65,9 @@ export default function Mission() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 md:gap-10">
-            {missionItems.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.1,
-                  ease: "easeOut"
-                }}
-                viewport={{ once: true, amount: 0.3 }}
+            {missionItems.map((item, i) => (
+              <div
+                key={i}
                 className="group overflow-hidden flex flex-col h-full rounded-lg md:rounded-xl transform-gpu border border-white/10 transition-all duration-300 hover:border-devclub/50 hover:shadow-[0_0_40px_-5px_rgba(97,165,194,0.25)] hover:-translate-y-1.5 bg-gradient-to-b from-white/[0.03] to-white/[0.08] backdrop-blur-sm"
               >
                 <div className="relative h-48 md:h-64 overflow-hidden">
@@ -100,7 +92,7 @@ export default function Mission() {
                 <div className="p-5 md:p-7 bg-gradient-to-b from-white to-blue-50/90 flex-grow">
                   <p className="text-sm md:text-base text-gray-700 leading-relaxed">{item.text}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </motion.div>
