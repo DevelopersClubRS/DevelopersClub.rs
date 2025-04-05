@@ -24,9 +24,10 @@ export default function Header() {
           src="/img/ct-meetup.jpg"
           alt="CT Meetup Background"
           fill
-          className="object-cover fixed max-w-full"
+          className="object-cover fixed max-w-full will-change-transform"
           priority
           sizes="100vw"
+          style={{ transform: 'translateZ(0)' }}
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>
