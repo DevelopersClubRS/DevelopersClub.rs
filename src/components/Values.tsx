@@ -74,7 +74,10 @@ export default function Values() {
                 src={values[selectedValue].img}
                 alt={values[selectedValue].alt}
                 fill
+                priority
+                loading="eager"
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
