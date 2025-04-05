@@ -59,8 +59,12 @@ export default function Membership() {
                   key={index}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  viewport={{ once: true, margin: '-25px' }}
+                  transition={{ 
+                    duration: 0.3, 
+                    delay: index * 0.05,
+                    ease: "easeOut"
+                  }}
+                  viewport={{ once: true, amount: 0.5 }}
                   className="flex items-start space-x-3 md:space-x-4 group p-2 md:p-3 rounded-lg hover:bg-white/5 transition-all duration-300"
                 >
                   <div className="flex-shrink-0 p-1.5 md:p-2 rounded-lg bg-devclub/10 group-hover:bg-devclub/20 transition-colors duration-300">

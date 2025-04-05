@@ -71,11 +71,11 @@ export default function Mission() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.6,
+                  duration: 0.4,
                   delay: index * 0.1,
-                  ease: [0.25, 0.1, 0.25, 1],
+                  ease: "easeOut"
                 }}
-                viewport={{ once: true, margin: '-25px' }}
+                viewport={{ once: true, amount: 0.3 }}
                 className="group overflow-hidden flex flex-col h-full rounded-lg md:rounded-xl transform-gpu border border-white/10 transition-all duration-300 hover:border-devclub/50 hover:shadow-[0_0_40px_-5px_rgba(97,165,194,0.25)] hover:-translate-y-1.5 bg-gradient-to-b from-white/[0.03] to-white/[0.08] backdrop-blur-sm"
               >
                 <div className="relative h-48 md:h-64 overflow-hidden">
@@ -84,6 +84,7 @@ export default function Mission() {
                       src={item.img}
                       alt={item.alt}
                       fill
+                      loading="eager"
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
