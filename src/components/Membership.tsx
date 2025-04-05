@@ -2,13 +2,26 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { BeakerIcon, UserGroupIcon, RocketLaunchIcon, AcademicCapIcon } from '@heroicons/react/24/outline'
 
 export default function Membership() {
   const benefits = [
-    "Pristup ekskluzivnim događajima i radionicama",
-    "Mogućnost umrežavanja sa stručnjacima iz različitih oblasti IT industrije",
-    "Priliku da učestvujete u zajedničkim projektima i stvarate inovativna rešenja",
-    "Pristup resursima koji vam pomažu da postanete autoritet u svojoj oblasti"
+    {
+      icon: BeakerIcon,
+      text: "Pristup ekskluzivnim događajima i radionicama"
+    },
+    {
+      icon: UserGroupIcon,
+      text: "Mogućnost umrežavanja sa stručnjacima iz različitih oblasti IT industrije"
+    },
+    {
+      icon: RocketLaunchIcon,
+      text: "Priliku da učestvujete u zajedničkim projektima i stvarate inovativna rešenja"
+    },
+    {
+      icon: AcademicCapIcon,
+      text: "Pristup resursima koji vam pomažu da postanete autoritet u svojoj oblasti"
+    }
   ]
 
   return (
@@ -33,7 +46,7 @@ export default function Membership() {
             </h2>
             <p className="text-lg text-blue-50">Kao član Developers Club-a, dobićete:</p>
 
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               {benefits.map((benefit, index) => (
                 <motion.li
                   key={index}
@@ -41,10 +54,14 @@ export default function Membership() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-start space-x-3 text-blue-50"
+                  className="flex items-start space-x-4 group p-3 rounded-lg hover:bg-white/5 transition-all duration-300"
                 >
-                  <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-devclub" />
-                  <span>{benefit}</span>
+                  <div className="flex-shrink-0 p-2 rounded-lg bg-devclub/10 group-hover:bg-devclub/20 transition-colors duration-300">
+                    <benefit.icon className="w-5 h-5 text-devclub" />
+                  </div>
+                  <span className="text-lg text-blue-50/90 group-hover:text-blue-50 pt-1 transition-colors duration-300">
+                    {benefit.text}
+                  </span>
                 </motion.li>
               ))}
             </ul>
