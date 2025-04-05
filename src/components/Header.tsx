@@ -18,7 +18,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="relative min-h-screen">
+    <header className="relative min-h-[100dvh]">
       <div className="absolute inset-0">
         <Image
           src="/img/ct-meetup.jpg"
