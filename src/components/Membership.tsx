@@ -40,10 +40,10 @@ export default function Membership() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -15 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: '-25px' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
             className="space-y-6 md:space-y-8"
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-b from-[#e4f1f7] via-[#89c2d9] to-[#61a5c2] [-webkit-text-stroke:1px_rgba(255,255,255,0.1)] [text-shadow:0_1px_2px_rgba(0,0,0,0.2),0_1px_15px_rgba(97,165,194,0.3)] leading-[1.3]">
@@ -57,14 +57,10 @@ export default function Membership() {
               {benefits.map((benefit, index) => (
                 <motion.li
                   key={index}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ 
-                    duration: 0.3, 
-                    delay: index * 0.05,
-                    ease: "easeOut"
-                  }}
-                  viewport={{ once: true, amount: 0.5 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
                   className="flex items-start space-x-3 md:space-x-4 group p-2 md:p-3 rounded-lg hover:bg-white/5 transition-all duration-300"
                 >
                   <div className="flex-shrink-0 p-1.5 md:p-2 rounded-lg bg-devclub/10 group-hover:bg-devclub/20 transition-colors duration-300">
@@ -79,10 +75,10 @@ export default function Membership() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 15 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: '-25px' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
             className="relative mt-4 md:mt-0"
           >
             <div className="relative rounded-lg md:rounded-xl overflow-hidden shadow-2xl shadow-black/20 border-2 border-white/10 group hover:border-devclub/50 transition-all duration-500 hover:shadow-[0_0_30px_-5px_rgba(97,165,194,0.3)]">
