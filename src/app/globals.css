@@ -63,3 +63,8 @@ body {
     --lvh: 1vh;
   }
 }
+
+/* Add this to your global styles */
+html {
+  scroll-padding-top: 20px;
+}
