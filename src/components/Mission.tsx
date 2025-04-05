@@ -49,7 +49,7 @@ export default function Mission() {
               viewport={{ once: true }}
               className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-b from-[#e4f1f7] via-[#89c2d9] to-[#61a5c2] [-webkit-text-stroke:1px_rgba(255,255,255,0.1)] [text-shadow:0_1px_2px_rgba(0,0,0,0.2),0_1px_15px_rgba(97,165,194,0.3)] leading-[1.3]"
             >
-              Naša Vizija
+              Naša Misija
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -76,28 +76,28 @@ export default function Mission() {
                 }}
                 viewport={{ once: true, margin: '-25px' }}
                 className="group overflow-hidden flex flex-col h-full rounded-lg md:rounded-xl transform-gpu border border-white/10 transition-all duration-300 hover:border-devclub/50 hover:shadow-[0_0_40px_-5px_rgba(97,165,194,0.25)] hover:-translate-y-1.5 bg-gradient-to-b from-white/[0.03] to-white/[0.08] backdrop-blur-sm"
-                >
+              >
                 <div className="relative h-48 md:h-64 overflow-hidden">
-                <div className="h-full w-full">
-                  <Image
-                    src={item.img}
-                    alt={item.alt}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                  <div className="h-full w-full">
+                    <Image
+                      src={item.img}
+                      alt={item.alt}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                  </div>
                 </div>
-              </div>
-              <div className="bg-devclub/90 py-5 md:py-6 px-5 md:px-7 transition-colors duration-500 group-hover:bg-devclub">
-                <div className="text-devclub-light/90 text-xs md:text-sm font-semibold uppercase tracking-wider mb-1.5">
-                  {item.alt}
+                <div className="bg-devclub/90 py-5 md:py-6 px-5 md:px-7 transition-colors duration-500 group-hover:bg-devclub">
+                  <div className="text-devclub-light/90 text-xs md:text-sm font-semibold uppercase tracking-wider mb-1.5">
+                    {item.alt}
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-white">{item.title}</h3>
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white">{item.title}</h3>
-              </div>
-              <div className="p-5 md:p-7 bg-gradient-to-b from-white to-blue-50/90 flex-grow">
-                <p className="text-sm md:text-base text-gray-700 leading-relaxed">{item.text}</p>
-              </div>
+                <div className="p-5 md:p-7 bg-gradient-to-b from-white to-blue-50/90 flex-grow">
+                  <p className="text-sm md:text-base text-gray-700 leading-relaxed">{item.text}</p>
+                </div>
               </motion.div>
             ))}
           </div>

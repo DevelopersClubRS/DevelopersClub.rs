@@ -24,7 +24,7 @@ export default function Header() {
           src="/img/ct-meetup.jpg"
           alt="CT Meetup Background"
           fill
-          className="object-cover fixed"
+          className="object-cover fixed max-w-full"
           priority
           sizes="100vw"
         />
@@ -114,18 +114,25 @@ export default function Header() {
 
         {/* Mobile Menu */}
         <div
-          className={`fixed inset-x-0 top-0 pt-24 pb-6 bg-gradient-to-b from-black/95 to-black/90 backdrop-blur-md z-40 transition-all duration-300 ease-in-out ${
+          className={`fixed inset-x-0 top-0 pt-20 pb-6 bg-gradient-to-b from-black/95 to-black/90 backdrop-blur-md z-40 transition-all duration-300 ease-in-out ${
             mobileMenuOpen ? 'translate-y-0 opacity-100 shadow-xl' : '-translate-y-full opacity-0'
           }`}
         >
           <div className="container mx-auto px-6">
-            <div className="flex flex-col space-y-6">
+            <div className="flex flex-col space-y-4">
               {['Misija', 'Vrednosti', 'Tim', 'Projekti', 'Partneri'].map((item, index) => (
                 <Link
                   key={index}
                   href={`#${item.toLowerCase()}`}
-                  className="text-white text-2xl font-medium border-b border-gray-800 pb-3 transition-all duration-300"
-                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-white text-xl font-medium border-b border-gray-800 pb-2 transition-all duration-300"
+                  onClick={e => {
+                    e.preventDefault()
+                    const element = document.getElementById(item.toLowerCase())
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' })
+                      setMobileMenuOpen(false)
+                    }
+                  }}
                 >
                   {item}
                 </Link>
@@ -146,13 +153,13 @@ export default function Header() {
       <div className="relative container mx-auto px-4 min-h-[100dvh] flex items-center">
         <div className="max-w-2xl">
           <div className="text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6">
               Delimo znanje.
               <br />
               <span className="text-devclub">Gradimo budućnost.</span>
             </h1>
 
-            <p className="text-base md:text-xl mb-8 text-gray-200">
+            <p className="text-sm sm:text-base md:text-xl mb-6 md:mb-8 text-gray-200">
               Klub Programera je mesto okupljanja IT profesionalaca, gde se razmenjuju ideje,
               iskustva i znanje. Kroz edukativne događaje, zajedničke projekte i razvojne
               inicijative, gradimo snažnu zajednicu stručnjaka koji zajedno oblikuju budućnost
@@ -163,11 +170,11 @@ export default function Header() {
               <Link
                 href="https://forms.gle/kFiA1KkoXjrKGMDV6"
                 target="_blank"
-                className="inline-flex items-center justify-center gap-2 bg-devclub hover:bg-devclub-dark text-white px-8 py-3.5 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-devclub/20 border border-transparent hover:border-white/10 group"
+                className="inline-flex items-center justify-center gap-2 bg-devclub hover:bg-devclub-dark text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-base sm:text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-devclub/20 border border-transparent hover:border-white/10 group"
               >
                 Pridruži se i postani deo priče
                 <svg
-                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                  className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
