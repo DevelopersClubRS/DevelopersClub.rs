@@ -19,21 +19,30 @@ export default function Header() {
 
   return (
     <header className="relative min-h-[100dvh] overflow-hidden">
-      <div className="absolute inset-0 h-[100dvh]">
-        <Image
-          src="/img/ct-meetup.jpg"
-          alt="CT Meetup Background"
-          fill
-          className="object-cover fixed max-w-full will-change-transform"
-          priority
-          sizes="100vw"
-          style={{ transform: 'translateZ(0)' }}
-        />
-        <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 h-[100dvh] w-full">
+        <div className="absolute inset-0 w-full h-full">
+          <Image
+            src="/img/ct-meetup.jpg"
+            alt="CT Meetup Background"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+            style={{
+              height: '100%',
+              width: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+              transform: 'translateZ(0)',
+              backfaceVisibility: 'hidden',
+            }}
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
       </div>
 
       <nav
-        className={`fixed w-full z-50 transition-all duration-300 ${
+        className={`sticky top-0 w-full z-50 transition-all duration-300 ${
           scrolled ? 'bg-black/80 backdrop-blur-sm' : ''
         }`}
       >
