@@ -48,6 +48,20 @@ export default function Values() {
       <div className="absolute inset-0 backdrop-blur-[1px]" />
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Preload all images */}
+        <div className="hidden">
+          {values.map((value, index) => (
+            <Image
+              key={`preload-${index}`}
+              src={value.img}
+              alt={value.alt}
+              width={800}
+              height={600}
+              priority
+            />
+          ))}
+        </div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,10 +88,7 @@ export default function Values() {
                 src={values[selectedValue].img}
                 alt={values[selectedValue].alt}
                 fill
-                priority
-                loading="eager"
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
