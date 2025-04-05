@@ -18,7 +18,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="relative min-h-screen">
+    <header className="relative w-full" style={{ minHeight: 'calc(100dvh)' }}>
       {/* Background container */}
       <div className="absolute inset-0 h-[800px] md:h-[900px]">
         <Image
@@ -30,7 +30,7 @@ export default function Header() {
           sizes="100vw"
           style={{
             objectFit: 'cover',
-            objectPosition: 'center 30%'
+            objectPosition: 'center 30%',
           }}
         />
         <div className="absolute inset-0 bg-black/60" />
@@ -153,7 +153,10 @@ export default function Header() {
       </nav>
 
       {/* Hero content with safe spacing */}
-      <div className="relative pt-20 min-h-screen flex items-center">
+      <div
+        className="relative h-full flex items-center"
+        style={{ minHeight: 'calc(100dvh - 80px)', paddingTop: '80px' }}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-2xl">
             <div className="text-white">
