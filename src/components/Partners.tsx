@@ -1,4 +1,7 @@
-import Image from 'next/image';
+'use client'
+
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function Partners() {
   const partners = [
@@ -10,33 +13,54 @@ export default function Partners() {
     { name: "Positive Tech", img: "/img/prijatelji/positivetech-logo-dark.png", url: "https://positivetechit.com/", darkBg: true },
     { name: "NTP NS", img: "/img/prijatelji/ntpns.png", url: "https://ntpns.rs/" },
     { name: "Heapspace", img: "/img/prijatelji/heapspace.png", url: "https://heapspace.rs/" }
-  ];
+  ]
 
   return (
-    <section id="friends">
-      <div>
-        <div>
-          <h5>Naši prijatelji</h5>
-          <p>Firme i organizacije koje podržavaju rad <em>Developers club</em>-a.</p>
-        </div>
-        <div>
+    <section id="friends" className="relative w-full py-24 overflow-hidden bg-slate-950/95">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.4)_100%)]" />
+      <div className="absolute inset-0 backdrop-blur-[1px]" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-b from-[#e4f1f7] via-[#89c2d9] to-[#61a5c2] [-webkit-text-stroke:1px_rgba(255,255,255,0.1)] [text-shadow:0_1px_2px_rgba(0,0,0,0.2),0_1px_15px_rgba(97,165,194,0.3)] leading-[1.1]">
+            Naši prijatelji
+          </h2>
+          <p className="text-base md:text-lg text-blue-50/90">
+            Firme i organizacije koje podržavaju rad <em>Developers club</em>-a.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto">
           {partners.map((partner, index) => (
-            <a 
-              key={index} 
-              href={partner.url} 
-              target="_blank" 
+            <motion.a
+              key={index}
+              href={partner.url}
+              target="_blank"
               rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group flex items-center justify-center p-6 rounded-xl bg-white/5 hover:bg-white/10 border-2 border-white/10 hover:border-devclub/30 transition-all duration-300 hover:shadow-[0_0_30px_-5px_rgba(97,165,194,0.3)]"
             >
-              <Image 
-                src={partner.img} 
-                alt={partner.name} 
-                width={96} 
-                height={48} 
-              />
-            </a>
+              <div className={`relative w-full h-12 ${partner.darkBg ? 'bg-gray-900 rounded-lg' : ''}`}>
+                <Image
+                  src={partner.img}
+                  alt={partner.name}
+                  fill
+                  className="object-contain p-2"
+                />
+              </div>
+            </motion.a>
           ))}
         </div>
       </div>
     </section>
-  );
+  )
 }

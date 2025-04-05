@@ -2,19 +2,22 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="container mx-auto px-4 py-12">
-        <hr className="border-gray-700 mb-8" />
+    <footer className="relative w-full overflow-hidden bg-slate-950/95 border-y border-white/5">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.4)_100%)]" />
+      <div className="absolute inset-0 backdrop-blur-[1px]" />
+
+      <div className="container mx-auto px-4 py-12 relative z-10">
+        <hr className="border-white/10 mb-8" />
         <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
-          <span className="text-sm">
+          <span className="text-sm text-blue-50/80">
             © 2025{' '}
-            <a href="https://developersclub.rs/" className="text-devclub hover:text-devclub-light transition-colors">
+            <a href="https://developersclub.rs/" className="text-devclub hover:text-devclub-light transition-colors duration-300">
               Developers Club™
             </a>
             . All Rights Reserved.
           </span>
 
-          <div className="flex space-x-4">
+          <div className="flex items-center justify-center gap-4 md:gap-6">
             {[
               {
                 name: 'LinkedIn',
@@ -107,11 +110,13 @@ export default function Footer() {
               <Link
                 key={index}
                 href={social.url}
-                className="text-gray-400 hover:text-devclub transition-colors"
+                className="text-blue-50/60 hover:text-devclub transition-colors duration-300 p-2 hover:bg-white/5 rounded-lg"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {social.svg}
+                <div className="w-5 h-5 flex items-center justify-center">
+                  {social.svg}
+                </div>
                 <span className="sr-only">{social.name} page</span>
               </Link>
             ))}
