@@ -18,9 +18,9 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="relative w-full" style={{ minHeight: 'calc(100dvh)' }}>
-      {/* Background container */}
-      <div className="absolute inset-0 h-[800px] md:h-[900px]">
+    <header className="relative w-full">
+      {/* Background container - fixed height instead of responsive */}
+      <div className="absolute inset-0 w-full" style={{ height: '100vh' }}>
         <Image
           src="/img/ct-meetup.jpg"
           alt="CT Meetup Background"
@@ -152,57 +152,57 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Hero content with safe spacing */}
-      <div
-        className="relative h-full flex items-center"
-        style={{ minHeight: 'calc(100dvh - 80px)', paddingTop: '80px' }}
-      >
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl">
-            <div className="text-white">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6">
-                Delimo znanje.
-                <br />
-                <span className="text-devclub">Gradimo budućnost.</span>
-              </h1>
+      {/* Hero content with fixed height */}
+      <div className="relative w-full" style={{ height: '100vh' }}>
+        <div className="absolute inset-0 flex items-center">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl">
+              <div className="text-white">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6">
+                  Delimo znanje.
+                  <br />
+                  <span className="text-devclub">Gradimo budućnost.</span>
+                </h1>
 
-              <p className="text-sm sm:text-base md:text-xl mb-6 md:mb-8 text-gray-200">
-                Klub Programera je mesto okupljanja IT profesionalaca, gde se razmenjuju ideje,
-                iskustva i znanje. Kroz edukativne događaje, zajedničke projekte i razvojne
-                inicijative, gradimo snažnu zajednicu stručnjaka koji zajedno oblikuju budućnost
-                tehnologije.
-              </p>
+                <p className="text-sm sm:text-base md:text-xl mb-6 md:mb-8 text-gray-200">
+                  Klub Programera je mesto okupljanja IT profesionalaca, gde se razmenjuju ideje,
+                  iskustva i znanje. Kroz edukativne događaje, zajedničke projekte i razvojne
+                  inicijative, gradimo snažnu zajednicu stručnjaka koji zajedno oblikuju budućnost
+                  tehnologije.
+                </p>
 
-              <div>
-                <Link
-                  href="https://forms.gle/kFiA1KkoXjrKGMDV6"
-                  target="_blank"
-                  className="inline-flex items-center justify-center gap-2 bg-devclub hover:bg-devclub-dark text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-base sm:text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-devclub/20 border border-transparent hover:border-white/10 group"
-                >
-                  Pridruži se i postani deo priče
-                  <svg
-                    className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                <div>
+                  <Link
+                    href="https://forms.gle/kFiA1KkoXjrKGMDV6"
+                    target="_blank"
+                    className="inline-flex items-center justify-center gap-2 bg-devclub hover:bg-devclub-dark text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-base sm:text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-devclub/20 border border-transparent hover:border-white/10 group"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </Link>
+                    Pridruži se i postani deo priče
+                    <svg
+                      className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
+      {/* Scroll indicator - position relative to the bottom of viewport */}
       <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce cursor-pointer"
+        className="fixed bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce cursor-pointer z-10"
         onClick={() => {
           const element = document.getElementById('misija')
           if (element) {

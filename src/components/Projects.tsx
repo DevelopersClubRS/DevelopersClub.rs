@@ -33,7 +33,7 @@ export default function Projects() {
             className="text-base md:text-lg text-blue-50/90 mb-8 leading-relaxed"
           >
             Pogledajte kako naši članovi rade na inovativnim projektima i učestvuju u ekskluzivnim
-            događanjima, gde stiču nova znanja i stvaraju veze sa profesionalcima iz celog sveta.
+            događajima, gde stiču nova znanja i stvaraju veze sa profesionalcima iz celog sveta.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
