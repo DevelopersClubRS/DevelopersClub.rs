@@ -46,3 +46,20 @@ body {
     border-color: var(--color-devclub);
   }
 }
+
+
+@supports (height: 100dvh) {
+  :root {
+    --dvh: 1dvh;
+    --svh: 1svh;
+    --lvh: 1lvh;
+  }
+}
+
+@supports not (height: 100dvh) {
+  :root {
+    --dvh: 1vh;
+    --svh: 1vh;
+    --lvh: 1vh;
+  }
+}

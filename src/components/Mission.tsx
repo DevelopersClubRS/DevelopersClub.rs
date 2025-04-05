@@ -26,9 +26,10 @@ export default function Mission() {
   ]
 
   return (
-    <section
-      id="misija"
+    <section 
+      id="misija" 
       className="relative w-full py-16 overflow-hidden border-y border-white/5 bg-gradient-to-b from-slate-950/95 to-slate-900/95"
+      style={{ scrollMarginTop: 'calc(var(--dvh,1vh)*100)' }} // Add scroll margin
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.4)_100%)]" />
       <div className="absolute inset-0 backdrop-blur-[1px]" />

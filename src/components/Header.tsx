@@ -18,9 +18,9 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="relative min-h-[100dvh] overflow-hidden">
-      {/* Add fixed positioning and dynamic height container */}
-      <div className="fixed inset-0 z-0 h-[100dvh]">
+    <header className="relative min-h-screen">
+      {/* Background container */}
+      <div className="absolute inset-0 h-screen">
         <Image
           src="/img/ct-meetup.jpg"
           alt="CT Meetup Background"
@@ -30,19 +30,14 @@ export default function Header() {
           sizes="100vw"
           style={{
             objectFit: 'cover',
-            // Replace transform hack with backface-visibility
-            backfaceVisibility: 'hidden',
             willChange: 'transform'
           }}
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
-      <nav
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          scrolled ? 'bg-black/80 backdrop-blur-sm' : ''
-        }`}
-      >
+      {/* Navigation - keep existing structure */}
+      <nav className={`fixed w-full z-50 ${scrolled ? 'bg-black/80' : ''}`}>
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="relative z-10">
             <Image
@@ -157,44 +152,47 @@ export default function Header() {
         </div>
       </nav>
 
-      <div className="relative container mx-auto px-4 min-h-[100dvh] flex items-center">
-        <div className="max-w-2xl">
-          <div className="text-white">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6">
-              Delimo znanje.
-              <br />
-              <span className="text-devclub">Gradimo budućnost.</span>
-            </h1>
+      {/* Hero content with safe spacing */}
+      <div className="relative pt-20 min-h-screen flex items-center">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl">
+            <div className="text-white">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6">
+                Delimo znanje.
+                <br />
+                <span className="text-devclub">Gradimo budućnost.</span>
+              </h1>
 
-            <p className="text-sm sm:text-base md:text-xl mb-6 md:mb-8 text-gray-200">
-              Klub Programera je mesto okupljanja IT profesionalaca, gde se razmenjuju ideje,
-              iskustva i znanje. Kroz edukativne događaje, zajedničke projekte i razvojne
-              inicijative, gradimo snažnu zajednicu stručnjaka koji zajedno oblikuju budućnost
-              tehnologije.
-            </p>
+              <p className="text-sm sm:text-base md:text-xl mb-6 md:mb-8 text-gray-200">
+                Klub Programera je mesto okupljanja IT profesionalaca, gde se razmenjuju ideje,
+                iskustva i znanje. Kroz edukativne događaje, zajedničke projekte i razvojne
+                inicijative, gradimo snažnu zajednicu stručnjaka koji zajedno oblikuju budućnost
+                tehnologije.
+              </p>
 
-            <div>
-              <Link
-                href="https://forms.gle/kFiA1KkoXjrKGMDV6"
-                target="_blank"
-                className="inline-flex items-center justify-center gap-2 bg-devclub hover:bg-devclub-dark text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-base sm:text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-devclub/20 border border-transparent hover:border-white/10 group"
-              >
-                Pridruži se i postani deo priče
-                <svg
-                  className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+              <div>
+                <Link
+                  href="https://forms.gle/kFiA1KkoXjrKGMDV6"
+                  target="_blank"
+                  className="inline-flex items-center justify-center gap-2 bg-devclub hover:bg-devclub-dark text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-base sm:text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-devclub/20 border border-transparent hover:border-white/10 group"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </Link>
+                  Pridruži se i postani deo priče
+                  <svg
+                    className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
