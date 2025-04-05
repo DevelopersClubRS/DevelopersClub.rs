@@ -75,7 +75,7 @@ export default function Mission() {
                   ease: [0.25, 0.1, 0.25, 1],
                 }}
                 viewport={{ once: true, margin: '-50px' }}
-                className="overflow-hidden flex flex-col h-full rounded-xl transform-gpu border border-white/10"
+                className="group overflow-hidden flex flex-col h-full rounded-xl transform-gpu border border-white/10 transition-all duration-500 hover:shadow-[0_0_30px_-5px_rgba(97,165,194,0.3)] hover:border-devclub/30 hover:-translate-y-1"
               >
                 <div className="relative h-60 overflow-hidden">
                   <div className="h-full w-full">
@@ -83,7 +83,7 @@ export default function Mission() {
                       src={item.img}
                       alt={item.alt}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
