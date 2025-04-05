@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import { Suspense } from 'react'
 import Membership from '../components/Membership'
 import Mission from '../components/Mission'
+import TeamMembers from '../components/TeamMembers'
 import Values from '../components/Values'
 
 export default function Home() {
@@ -34,15 +35,15 @@ export default function Home() {
         <Values />
       </Suspense>
 
-      {/* <Suspense
-          fallback={
-            <div className="h-96 flex items-center justify-center">Loading team members...</div>
-          }
-        >
-          <TeamMembers />
-        </Suspense>
+      <Suspense
+        fallback={
+          <div className="h-96 flex items-center justify-center">Loading team members...</div>
+        }
+      >
+        <TeamMembers />
+      </Suspense>
 
-        <Suspense
+      {/* <Suspense
           fallback={
             <div className="h-96 flex items-center justify-center">Loading projects...</div>
           }
