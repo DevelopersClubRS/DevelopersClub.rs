@@ -18,14 +18,15 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="relative min-h-[100dvh]">
-      <div className="absolute inset-0">
+    <header className="relative min-h-[100dvh] overflow-hidden">
+      <div className="absolute inset-0 h-[100dvh]">
         <Image
           src="/img/ct-meetup.jpg"
           alt="CT Meetup Background"
           fill
-          className="object-cover"
+          className="object-cover fixed"
           priority
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>
@@ -142,16 +143,16 @@ export default function Header() {
         </div>
       </nav>
 
-      <div className="relative container mx-auto px-4 min-h-screen flex items-center">
+      <div className="relative container mx-auto px-4 min-h-[100dvh] flex items-center">
         <div className="max-w-2xl">
           <div className="text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Delimo znanje.
               <br />
               <span className="text-devclub">Gradimo budućnost.</span>
             </h1>
 
-            <p className="text-lg md:text-xl mb-8 text-gray-200">
+            <p className="text-base md:text-xl mb-8 text-gray-200">
               Klub Programera je mesto okupljanja IT profesionalaca, gde se razmenjuju ideje,
               iskustva i znanje. Kroz edukativne događaje, zajedničke projekte i razvojne
               inicijative, gradimo snažnu zajednicu stručnjaka koji zajedno oblikuju budućnost
