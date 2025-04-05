@@ -2,19 +2,19 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer>
-      <div>
-        <hr />
-        <div>
-          <span>
+    <footer className="bg-gray-900 text-gray-300">
+      <div className="container mx-auto px-4 py-12">
+        <hr className="border-gray-700 mb-8" />
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+          <span className="text-sm">
             © 2025{' '}
-            <a href="https://developersclub.rs/">
+            <a href="https://developersclub.rs/" className="text-devclub hover:text-devclub-light transition-colors">
               Developers Club™
             </a>
             . All Rights Reserved.
           </span>
 
-          <div>
+          <div className="flex space-x-4">
             {[
               {
                 name: 'LinkedIn',
@@ -25,6 +25,7 @@ export default function Footer() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
                     viewBox="0 0 448 512"
+                    className="w-5 h-5"
                   >
                     <path
                       fillRule="evenodd"
@@ -106,6 +107,9 @@ export default function Footer() {
               <Link
                 key={index}
                 href={social.url}
+                className="text-gray-400 hover:text-devclub transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 {social.svg}
                 <span className="sr-only">{social.name} page</span>

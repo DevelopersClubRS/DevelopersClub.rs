@@ -51,6 +51,13 @@ export default function Header() {
                 key={index}
                 href={`#${item.toLowerCase()}`}
                 className="relative text-white transition-all duration-300 group"
+                onClick={e => {
+                  e.preventDefault()
+                  const element = document.getElementById(item.toLowerCase())
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' })
+                  }
+                }}
               >
                 {item}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-devclub transition-all duration-300 group-hover:w-full"></span>
@@ -65,8 +72,8 @@ export default function Header() {
             </Link>
           </div>
 
-          <button 
-            className="md:hidden text-white z-50" 
+          <button
+            className="md:hidden text-white z-50"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -103,13 +110,11 @@ export default function Header() {
             )}
           </button>
         </div>
-        
+
         {/* Mobile Menu */}
-        <div 
+        <div
           className={`fixed inset-x-0 top-0 pt-24 pb-6 bg-gradient-to-b from-black/95 to-black/90 backdrop-blur-md z-40 transition-all duration-300 ease-in-out ${
-            mobileMenuOpen 
-              ? 'translate-y-0 opacity-100 shadow-xl' 
-              : '-translate-y-full opacity-0'
+            mobileMenuOpen ? 'translate-y-0 opacity-100 shadow-xl' : '-translate-y-full opacity-0'
           }`}
         >
           <div className="container mx-auto px-6">
@@ -180,7 +185,15 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce">
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce cursor-pointer"
+        onClick={() => {
+          const element = document.getElementById('misija')
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }}
+      >
         <svg
           className="w-8 h-8"
           fill="none"
