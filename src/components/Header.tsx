@@ -19,7 +19,8 @@ export default function Header() {
 
   return (
     <header className="relative min-h-[100dvh] overflow-hidden">
-      <div className="absolute inset-0 h-[100dvh]">
+      {/* Add fixed positioning and dynamic height container */}
+      <div className="fixed inset-0 z-0 h-[100dvh]">
         <Image
           src="/img/ct-meetup.jpg"
           alt="CT Meetup Background"
@@ -29,7 +30,8 @@ export default function Header() {
           sizes="100vw"
           style={{
             objectFit: 'cover',
-            transform: 'translateZ(0)',
+            // Replace transform hack with backface-visibility
+            backfaceVisibility: 'hidden',
             willChange: 'transform'
           }}
         />
