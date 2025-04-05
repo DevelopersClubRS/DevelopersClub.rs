@@ -15,7 +15,7 @@ export default function TeamMembers() {
 
   return (
     <section
-      id="members"
+      id="tim"
       className="relative w-full py-24 overflow-hidden bg-gradient-to-b from-slate-900/95 via-slate-950/95 to-slate-950"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.4)_100%)]" />

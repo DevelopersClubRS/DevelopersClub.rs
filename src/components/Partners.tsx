@@ -34,7 +34,7 @@ export default function Partners() {
   ]
 
   return (
-    <section id="friends" className="relative w-full py-24 overflow-hidden bg-slate-950/95">
+    <section id="partneri" className="relative w-full py-24 overflow-hidden bg-slate-950/95">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.4)_100%)]" />
       <div className="absolute inset-0 backdrop-blur-[1px]" />
 

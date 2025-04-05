@@ -75,29 +75,29 @@ export default function Mission() {
                   ease: [0.25, 0.1, 0.25, 1],
                 }}
                 viewport={{ once: true, margin: '-25px' }}
-                className="group overflow-hidden flex flex-col h-full rounded-lg md:rounded-xl transform-gpu border-2 border-white/10 transition-all duration-300 hover:border-devclub/50 hover:shadow-[0_0_30px_-5px_rgba(97,165,194,0.3)] hover:-translate-y-1 bg-white/5 backdrop-blur-sm"
-              >
-                <div className="relative h-48 md:h-60 overflow-hidden border-b border-white/10">
-                  <div className="h-full w-full">
-                    <Image
-                      src={item.img}
-                      alt={item.alt}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                  </div>
+                className="group overflow-hidden flex flex-col h-full rounded-lg md:rounded-xl transform-gpu border border-white/10 transition-all duration-300 hover:border-devclub/50 hover:shadow-[0_0_40px_-5px_rgba(97,165,194,0.25)] hover:-translate-y-1.5 bg-gradient-to-b from-white/[0.03] to-white/[0.08] backdrop-blur-sm"
+                >
+                <div className="relative h-48 md:h-64 overflow-hidden">
+                <div className="h-full w-full">
+                  <Image
+                    src={item.img}
+                    alt={item.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                 </div>
-                <div className="bg-devclub py-4 md:py-5 px-4 md:px-6 transition-colors duration-500 group-hover:bg-devclub/90">
-                  <div className="text-devclub-light text-xs md:text-sm font-semibold uppercase tracking-wider mb-1">
-                    {item.alt}
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">{item.title}</h3>
+              </div>
+              <div className="bg-devclub/90 py-5 md:py-6 px-5 md:px-7 transition-colors duration-500 group-hover:bg-devclub">
+                <div className="text-devclub-light/90 text-xs md:text-sm font-semibold uppercase tracking-wider mb-1.5">
+                  {item.alt}
                 </div>
-                <div className="p-4 md:p-6 bg-white flex-grow">
-                  <p className="text-sm md:text-base text-gray-700 leading-relaxed">{item.text}</p>
-                </div>
+                <h3 className="text-xl md:text-2xl font-bold text-white">{item.title}</h3>
+              </div>
+              <div className="p-5 md:p-7 bg-gradient-to-b from-white to-blue-50/90 flex-grow">
+                <p className="text-sm md:text-base text-gray-700 leading-relaxed">{item.text}</p>
+              </div>
               </motion.div>
             ))}
           </div>
