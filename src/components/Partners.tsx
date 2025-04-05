@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Partners() {
   const partners = [
@@ -56,7 +57,9 @@ export default function Partners() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto">
           {partners.map((partner, i) => (
-            <div
+            <Link
+              href={partner.url}
+              target="_blank"
               key={i}
               className="group flex items-center justify-center p-6 rounded-xl bg-white/5 hover:bg-white/10 border-2 border-white/10 hover:border-devclub/30 transition-all duration-300 hover:shadow-[0_0_30px_-5px_rgba(97,165,194,0.3)]"
             >
@@ -71,7 +74,7 @@ export default function Partners() {
                   className="object-contain p-2"
                 />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
