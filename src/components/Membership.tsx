@@ -46,12 +46,10 @@ export default function Membership() {
             viewport={{ once: true }}
             className="space-y-6 md:space-y-8"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-b from-[#e4f1f7] via-[#89c2d9] to-[#61a5c2] [-webkit-text-stroke:1px_rgba(255,255,255,0.1)] [text-shadow:0_1px_2px_rgba(0,0,0,0.2),0_1px_15px_rgba(97,165,194,0.3)] leading-[1.3]">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-devclub">
               Prednosti članstva u Developers Club-u
             </h2>
-            <p className="text-base md:text-lg text-blue-50">
-              Kao član Developers Club-a, dobićete:
-            </p>
+            <p className="text-base md:text-lg">Kao član Developers Club-a, dobićete:</p>
 
             <ul className="space-y-2">
               {benefits.map((benefit, i) => (

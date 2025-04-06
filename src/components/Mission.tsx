@@ -48,7 +48,7 @@ export default function Mission() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
               viewport={{ once: true }}
-              className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-b from-[#e4f1f7] via-[#89c2d9] to-[#61a5c2] [-webkit-text-stroke:1px_rgba(255,255,255,0.1)] [text-shadow:0_1px_2px_rgba(0,0,0,0.2),0_1px_15px_rgba(97,165,194,0.3)] leading-[1.3]"
+              className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-devclub"
             >
               Naša Misija
             </motion.h2>
@@ -84,13 +84,15 @@ export default function Mission() {
                   </div>
                 </div>
                 <div className="bg-devclub/90 py-5 md:py-6 px-5 md:px-7 transition-colors duration-500 group-hover:bg-devclub">
-                  <div className="text-devclub-light/90 text-xs md:text-sm font-semibold uppercase tracking-wider mb-1.5">
+                  <div className="text-devclub-light/90 text-xs md:text-sm font-semibold uppercase mb-1.5">
                     {item.alt}
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">{item.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-devclub">{item.title}</h3>
                 </div>
                 <div className="p-5 md:p-7 bg-gradient-to-b from-white to-blue-50/90 flex-grow">
-                  <p className="text-sm md:text-base text-gray-700 leading-relaxed">{item.text}</p>
+                  <p className="text-sm md:text-base text-gray-700 leading-relaxed group-hover:text-devclub-dark/90 transition-colors duration-300">
+                    {item.text}
+                  </p>
                 </div>
               </div>
             ))}
