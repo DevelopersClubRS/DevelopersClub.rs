@@ -131,7 +131,14 @@ export default function Header() {
                     e.preventDefault()
                     const element = document.getElementById(item.toLowerCase())
                     if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' })
+                      const headerOffset = 80 // Account for fixed header height
+                      const elementPosition = element.getBoundingClientRect().top
+                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      })
                       setMobileMenuOpen(false)
                     }
                   }}
