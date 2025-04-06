@@ -20,8 +20,9 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="relative min-h-[100dvh]">
-      <div className="absolute inset-0 h-[800px] md:h-[900px]">
+    <header className="relative min-h-[100dvh] flex flex-col">
+      {/* Background container - make it fill the viewport */}
+      <div className="absolute inset-0">
         <Image
           src="/img/ct-meetup.jpg"
           alt="CT Meetup Background"
