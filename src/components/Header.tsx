@@ -19,20 +19,8 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => {
-    const setVH = () => {
-      const vh = window.innerHeight * 0.01
-      document.documentElement.style.setProperty('--vh', `${vh}px`)
-    }
-
-    setVH()
-    window.addEventListener('resize', setVH)
-    return () => window.removeEventListener('resize', setVH)
-  }, [])
-
   return (
-    <header className="relative" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
-      {/* Background container */}
+    <header className="relative min-h-[100dvh]">
       <div className="absolute inset-0 h-[800px] md:h-[900px]">
         <Image
           src="/img/ct-meetup.jpg"
@@ -223,7 +211,14 @@ export default function Header() {
         onClick={() => {
           const element = document.getElementById('misija')
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth' })
+            const headerOffset = 80
+            const elementPosition = element.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            })
           }
         }}
       >
