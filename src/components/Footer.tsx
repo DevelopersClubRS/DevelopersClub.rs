@@ -19,7 +19,7 @@ export default function Footer() {
               className="brightness-[0.95]"
             />
           </Link>
-          <p className="text-lg text-blue-50/90">
+          <p className="text-lg text-devclub-50/90">
             Delimo znanje. <span className="text-devclub">Gradimo budućnost.</span>
           </p>
         </div>
@@ -29,23 +29,23 @@ export default function Footer() {
         {/* Info section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
-            <h4 className="text-blue-50/90 font-medium mb-4">Kontakt</h4>
+            <h4 className="text-devclub-50/90 font-medium mb-4">Kontakt</h4>
             <a
               href="mailto:info@developersclub.rs"
-              className="text-sm text-blue-50/70 hover:text-devclub transition-colors"
+              className="text-sm text-devclub-50/70 hover:text-devclub transition-colors"
             >
               info@developersclub.rs
             </a>
           </div>
 
           <div>
-            <h4 className="text-blue-50/90 font-medium mb-4">Lokacija</h4>
-            <p className="text-sm text-blue-50/70">Novi Sad, Srbija</p>
+            <h4 className="text-devclub-50/90 font-medium mb-4">Lokacija</h4>
+            <p className="text-sm text-devclub-50/70">Novi Sad, Srbija</p>
           </div>
 
           <div>
-            <h4 className="text-blue-50/90 font-medium mb-4">Društvene mreže</h4>
-            <div className="flex gap-4">
+            <h4 className="text-devclub-50/90 font-medium mb-4">Društvene mreže</h4>
+            <div className="flex flex-wrap gap-4">
               {[
                 {
                   name: 'LinkedIn',
@@ -138,18 +138,20 @@ export default function Footer() {
                 <Link
                   key={index}
                   href={social.url}
-                  className="text-blue-50/60 hover:text-devclub transition-colors duration-300 p-2 hover:bg-white/5 rounded-lg"
+                  className="text-devclub-50/60 hover:text-devclub transition-colors duration-300 p-2 hover:bg-white/5 rounded-lg shrink-0"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="w-5 h-5 flex items-center justify-center">{social.svg}</div>
+                  <div className="w-5 h-5 flex items-center justify-center shrink-0">
+                    {social.svg}
+                  </div>
                   <span className="sr-only">{social.name} page</span>
                 </Link>
               ))}
             </div>
           </div>
         </div>
-        <p className="text-sm text-blue-50/70 text-center">
+        <p className="text-sm text-devclub-50/70 text-center">
           © 2025 <span className="text-devclub">Developers Club™</span>. All Rights Reserved.
         </p>
       </div>
