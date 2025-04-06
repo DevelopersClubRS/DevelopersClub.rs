@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
+const sections = ['Misija', 'Vrednosti', 'Tim', 'Projekti', 'Partneri']
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -17,8 +19,19 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const setVH = () => {
+      const vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty('--vh', `${vh}px`)
+    }
+
+    setVH()
+    window.addEventListener('resize', setVH)
+    return () => window.removeEventListener('resize', setVH)
+  }, [])
+
   return (
-    <header className="relative min-h-screen">
+    <header className="relative" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
       {/* Background container */}
       <div className="absolute inset-0 h-[800px] md:h-[900px]">
         <Image
@@ -49,7 +62,7 @@ export default function Header() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            {['Misija', 'Vrednosti', 'Tim', 'Projekti', 'Partneri'].map((item, index) => (
+            {sections.map((item, index) => (
               <Link
                 key={index}
                 href={`#${item.toLowerCase()}`}
@@ -122,7 +135,7 @@ export default function Header() {
         >
           <div className="container mx-auto px-6">
             <div className="flex flex-col space-y-4">
-              {['Misija', 'Vrednosti', 'Tim', 'Projekti', 'Partneri'].map((item, index) => (
+              {sections.map((item, index) => (
                 <Link
                   key={index}
                   href={`#${item.toLowerCase()}`}
@@ -137,7 +150,7 @@ export default function Header() {
 
                       window.scrollTo({
                         top: offsetPosition,
-                        behavior: 'smooth'
+                        behavior: 'smooth',
                       })
                       setMobileMenuOpen(false)
                     }
