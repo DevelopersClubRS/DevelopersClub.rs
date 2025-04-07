@@ -4,11 +4,11 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #ededed;
+  --background: #171717;
   --color-devclub: #79b5bd;
-  --color-devclub-light: '#a6d0d6',
-  --color-devclub-dark: '#5a8a91',
+  --color-devclub-light: '#a6d0d6';
+  --color-devclub-dark: '#5a8a91';
   --font-sans: system-ui, sans-serif;
   --font-mono: ui-monospace, monospace;
 }
@@ -33,15 +33,15 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .text-devclub {
     color: var(--color-devclub);
   }
-  
+
   .bg-devclub {
     background-color: var(--color-devclub);
   }
-  
+
   .border-devclub {
     border-color: var(--color-devclub);
   }

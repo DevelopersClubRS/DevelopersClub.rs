@@ -90,34 +90,23 @@ export default function Footer() {
       <div className="absolute inset-0 backdrop-blur-[1px]" />
 
       <div className="container mx-auto px-4 py-12 relative z-10">
-        {/* Header section */}
-        <div className="flex flex-col md:flex-row items-center md:items-center gap-8 mb-12">
-          <Link href="/" className="shrink-0">
-            <Image
-              src="/img/developers-club-logo-white.svg"
-              alt="Developers Club"
-              width={120}
-              height={28}
-              className="brightness-[0.95]"
-            />
-          </Link>
-          <p className="text-lg text-devclub-50/90">
-            Delimo znanje. <span className="text-devclub">Gradimo budućnost.</span>
-          </p>
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div className="flex flex-col md:flex-row items-center md:items-center gap-8 mb-12">
+            <Link href="/" className="shrink-0">
+              <Image
+                  src="/img/developers-club-logo-white.svg"
+                  alt="Developers Club"
+                  width={120}
+                  height={28}
+                  className="brightness-[0.95]"
+              />
+            </Link>
+          </div>
 
-        <hr className="border-white/5 mb-12" />
-
-        {/* Info section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          <div>
-            <h4 className="text-devclub-50/90 font-medium mb-4">Kontakt</h4>
-            <a
-              href="mailto:info@developersclub.rs"
-              className="text-sm text-devclub-50/70 hover:text-devclub transition-colors"
-            >
-              info@developersclub.rs
-            </a>
+          <div className="flex flex-col md:flex-row items-center md:items-center gap-8 mb-12">
+            <p className="text-lg text-devclub-50/90">
+              Delimo znanje.<br/><span className="text-devclub">Gradimo budućnost.</span>
+            </p>
           </div>
 
           <div>
