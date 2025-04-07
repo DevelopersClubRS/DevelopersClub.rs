@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Developers Club',
-  description: 'Delimo znanje. Gradimo budućnost.',
+  description: 'Mesto okupljanja IT profesionalaca, gde se razmenjuju ideje, iskustva i znanje.',
 }
 
 export default function RootLayout({
