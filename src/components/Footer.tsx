@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { useState, useEffect } from 'react';
+
 const resources = [
   {
     name: 'LinkedIn',
@@ -84,6 +86,13 @@ const resources = [
 ]
 
 export default function Footer() {
+  const [year, setYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    // Sync the year on the client to ensure it matches the current date
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="relative w-full overflow-hidden bg-slate-950/95 border-t border-white/5">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.4)_100%)]" />
@@ -135,9 +144,19 @@ export default function Footer() {
           </div>
         </div>
         <p className="text-sm text-devclub-50/70 text-center">
-          © 2025 <span className="text-devclub">Developers Club™</span>. All Rights Reserved.
+          © {year} <span className="text-devclub">Developers Club™</span>. All Rights Reserved.
         </p>
       </div>
+      {/* Injects the build date as an HTML comment invisible to the user but visible in 'Inspect Source' */}
+      {process.env.NEXT_PUBLIC_BUILD_DATE && (
+          <div
+              aria-hidden="true"
+              style={{ display: 'none' }}
+              dangerouslySetInnerHTML={{
+                __html: ``,
+              }}
+          />
+      )}
     </footer>
   )
 }
