@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     },
     env: {
         // This captures the date at the exact moment 'next build' is run
-        NEXT_PUBLIC_BUILD_DATE: new Date().toLocaleString(),
+        NEXT_PUBLIC_BUILD_DATE: new Date().toISOString(),
     },
 };
 

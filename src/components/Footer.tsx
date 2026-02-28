@@ -155,10 +155,11 @@ export default function Footer() {
               aria-hidden="true"
               style={{ display: 'none' }}
               dangerouslySetInnerHTML={{
-                __html: ``,
+                __html: process.env.NEXT_PUBLIC_BUILD_DATE,
               }}
           />
       )}
     </footer>
+
   )
 }
