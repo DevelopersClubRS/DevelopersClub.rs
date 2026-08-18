@@ -1,11 +1,11 @@
 # DevelopersClub.rs Website
 
 This is the official source code for the [Developers Club](https://developersclub.rs) website.  
-The website is built using [Next.js](https://nextjs.org/) and statically deployed to [Cloudflare Pages](https://pages.cloudflare.com/).
+The website is built using [Astro](https://astro.build/) and statically deployed to [Cloudflare Pages](https://pages.cloudflare.com/).
 
 ## 🧱 Tech Stack
 
-- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Framework**: [Astro](https://astro.build/) (static output)
 - **Styling**: Tailwind CSS
 - **Deployment**: Cloudflare Pages (Static Export to [developersclub.rs](https://developersclub.rs))
 
@@ -27,10 +27,18 @@ npm run dev
 
 Open http://localhost:3000 in your browser to see the result.
 
+To preview the production build locally, run `npm run build` followed by `npm run preview`.
+
 ## 🔄 Deployment
 
 The site is automatically deployed via **Cloudflare Pages**.  
 Any push to the `main` branch will trigger a new deployment.
+
+Cloudflare Pages settings:
+
+- **Build command**: `npm run build`
+- **Build output directory**: `dist`
+- **Node.js**: 22.12 or newer
 
 ## ✍️ Contributing
 

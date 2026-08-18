@@ -7,7 +7,7 @@ import {
   UserGroupIcon,
 } from '@heroicons/react/24/outline'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
+import { Image } from './framework'
 
 export default function Membership() {
   const benefits = [
