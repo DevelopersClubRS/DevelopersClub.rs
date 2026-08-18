@@ -59,7 +59,7 @@ export default function Partners() {
             Naši prijatelji
           </h2>
           <p className="text-base md:text-lg text-blue-50/90">
-            Firme i organizacije koje podržavaju rad <em>Developers club</em>-a.
+            Firme i organizacije koje podržavaju rad <em>Developers club</em>-a
           </p>
         </motion.div>
 
