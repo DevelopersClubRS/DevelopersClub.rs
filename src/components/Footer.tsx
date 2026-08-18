@@ -1,9 +1,6 @@
 'use client'
 
-import Image from 'next/image'
-import Link from 'next/link'
-
-import { useState, useEffect } from 'react';
+import { Image, Link } from './framework'
 
 const resources = [
   {
@@ -88,12 +85,7 @@ const resources = [
 ]
 
 export default function Footer() {
-  const [year, setYear] = useState(new Date().getFullYear());
-
-  useEffect(() => {
-    // Sync the year on the client to ensure it matches the current date
-    setYear(new Date().getFullYear());
-  }, []);
+  const year = new Date().getFullYear()
 
   return (
     <footer className="relative w-full overflow-hidden bg-slate-950/95 border-t border-white/5">
@@ -149,16 +141,6 @@ export default function Footer() {
           © {year} <span className="text-devclub">Developers Club™</span>. All Rights Reserved.
         </p>
       </div>
-      {/* Injects the build date as an HTML comment invisible to the user but visible in 'Inspect Source' */}
-      {process.env.NEXT_PUBLIC_BUILD_DATE && (
-          <div
-              aria-hidden="true"
-              style={{ display: 'none' }}
-              dangerouslySetInnerHTML={{
-                __html: process.env.NEXT_PUBLIC_BUILD_DATE,
-              }}
-          />
-      )}
     </footer>
 
   )

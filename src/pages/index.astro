@@ -1,0 +1,41 @@
+---
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+import Membership from '../components/Membership'
+import Mission from '../components/Mission'
+import Partners from '../components/Partners'
+import Projects from '../components/Projects'
+import TeamMembers from '../components/TeamMembers'
+import Values from '../components/Values'
+import '../styles/global.css'
+
+const title = 'Developers Club'
+const description = 'Mesto okupljanja IT profesionalaca, gde se razmenjuju ideje, iskustva i znanje.'
+const buildDate = new Date().toISOString()
+---
+
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <title>{title}</title>
+    <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="18045f12-37bd-4c05-857e-68f6f7b29f01"></script>
+  </head>
+  <body>
+    <main>
+      <Header client:load />
+      <Mission client:visible />
+      <Membership client:visible />
+      <Values client:visible />
+      <TeamMembers client:visible />
+      <Projects client:visible />
+      <Partners client:visible />
+      <Footer />
+    </main>
+    <Fragment set:html={`<!-- Build date: ${buildDate} -->`} />
+  </body>
+</html>
