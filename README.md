@@ -19,15 +19,15 @@ git clone https://github.com/DevelopersClubRS/DevelopersClub.rs.git
 cd DevelopersClub.rs
 
 # Install dependencies
-npm install
+pnpm install
 
 # Run the development server
-npm run dev
+pnpm dev
 ```
 
 Open http://localhost:3000 in your browser to see the result.
 
-To preview the production build locally, run `npm run build` followed by `npm run preview`.
+To preview the production build locally, run `pnpm build` followed by `pnpm preview`.
 
 ## 🔄 Deployment
 
@@ -36,7 +36,8 @@ Any push to the `main` branch will trigger a new deployment.
 
 Cloudflare Pages settings:
 
-- **Build command**: `npm run build`
+- **Package manager**: pnpm 10
+- **Build command**: `pnpm build`
 - **Build output directory**: `dist`
 - **Node.js**: 22.12 or newer
 
